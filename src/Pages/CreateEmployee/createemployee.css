@@ -1,0 +1,142 @@
+h1{
+    font-size: 35px;
+}
+
+h2{
+    font-size: 25px;
+}
+
+p{
+    font-size: 16px;
+}
+
+label{
+    font-size: 16px;
+}
+
+.containerPageCreate{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*background-color: aqua;*/
+}
+
+.formPageCreate{
+    /*background-color: blue;*/
+    display: flex;
+    flex-direction: column;
+    width: 290px;
+}
+
+.fieldsGroup{
+    display: flex;
+    flex-direction: column;
+    padding-top: 25px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+}
+
+.containerFirstName{
+    display: flex;
+    flex-direction: column;
+    /*background-color: green;*/
+}
+
+.containerLastName{
+    display: flex;
+    flex-direction: column;
+}
+
+.containerStreet{
+    display: flex;
+    flex-direction: column;
+}
+
+.containerCity{
+    display: flex;
+    flex-direction: column;
+}
+
+.containerZipCode{
+    display: flex;
+    flex-direction: column;
+}
+
+.containerTitlesPageCreate{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.TextLinkPageCreate{
+    margin-top:0px;
+    margin-bottom: 0px;
+}
+
+.firstNameInput{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:160px;
+}
+
+.lastNameInput{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:160px;
+}
+
+.streetInput{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:160px;
+}
+
+.cityInput{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:160px;
+}
+
+.zipCodeInput{
+    margin-top: 10px;
+    width:160px;
+}
+
+.containerFormButton{
+    /*background-color: aqua;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom:10px;
+}
+
+.formButton{
+    margin-top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.dateOfBirthDatePicker{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:160px;
+}
+
+.startDateDatePicker{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:160px;
+}
+
+.stateSelect{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.departmentSelect{
+    margin-top: 10px;
+    width: 260px;
+    font-size: 18px;
+}
+
