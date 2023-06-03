@@ -140,3 +140,8 @@ label{
     font-size: 18px;
 }
 
+.textErrorField{
+    color:red;
+    /*background-color: blue;*/
+    text-align: center;
+}
