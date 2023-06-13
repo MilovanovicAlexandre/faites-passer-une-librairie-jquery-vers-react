@@ -1,14 +1,43 @@
-import React, {useState} from 'react'
-import { Link } from 'react-router-dom'
-import DatePicker from "react-datepicker"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Pages/CreateEmployee/createemployee.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Pages/CreateEmployee/createemployee.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, {useState} from 'react'
+import { Link } from 'react-router-dom';
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
 import Select from 'react-select';
-import { statesListing } from '../../Data/statesListing.js'
-import { departmentsListing } from '../../Data/departmentsListing.js'
+import { statesListing } from '../../Data/statesListing.js';
+import { departmentsListing } from '../../Data/departmentsListing.js';
 import './createemployee.css'
-import { useDispatch } from 'react-redux'
-import { actionCreateEmployee } from '../../Redux/store.js'
-import fieldsChecking from '../../Services/fieldschecking.js'
+import { useDispatch } from 'react-redux';
+import { actionCreateEmployee } from '../../Redux/store.js';
+import fieldsChecking from '../../Services/fieldschecking.js';
+import ModalTest from '../../Components/ModalTest/modaltest.jsx';
 import {Modal} from 'alex-modal-in-react'
 
 /** 
@@ -78,39 +107,39 @@ function CreateEmployee() {
     }
 
     return (
-        <main>
-            <div className='containerPageCreate'>
-                <div className='containerTitlesPageCreate'>
-                    <h1>HRnet</h1>
-                    <Link to='/CurrentEmployees'><p className='TextLinkPageCreate'>View Current Employees</p></Link>
-                    <h2>Create Employee</h2>
-                </div>
-                <form className='formPageCreate' id ='formPageCreate' onSubmit={(event) => formSubmission(event)}>
-                    <div className='containerFirstName'>
-                        <label htmlFor='firstName'>First Name</label>
-                        <input 
+        &lt;main>
+            &lt;div className='containerPageCreate'>
+                &lt;div className='containerTitlesPageCreate'>
+                    &lt;h1>HRnet&lt;/h1>
+                    &lt;Link to='/CurrentEmployees'>&lt;p className='TextLinkPageCreate'>View Current Employees&lt;/p>&lt;/Link>
+                    &lt;h2>Create Employee&lt;/h2>
+                &lt;/div>
+                &lt;form className='formPageCreate' id ='formPageCreate' onSubmit={(event) => formSubmission(event)}>
+                    &lt;div className='containerFirstName'>
+                        &lt;label htmlFor='firstName'>First Name&lt;/label>
+                        &lt;input 
                         type='text' 
                         name='firstName' 
                         id='firstName'  
                         onChange={(event) => setFirstName(event.target.value)}
                         className='firstNameInput'
                         />
-                        { firstNameError ? <p className='textErrorField'>First name must contains at least 2 characters</p>: null}
-                    </div>
-                    <div className='containerLastName'>
-                        <label htmlFor='lastName'>Last Name</label>
-                        <input 
+                        { firstNameError ? &lt;p className='textErrorField'>First name must contains at least 2 characters&lt;/p>: null}
+                    &lt;/div>
+                    &lt;div className='containerLastName'>
+                        &lt;label htmlFor='lastName'>Last Name&lt;/label>
+                        &lt;input 
                         type='text' 
                         name='lastName' 
                         id='lastName' 
                         onChange={(event) => setLastName(event.target.value)}
                         className='lastNameInput' 
                         />
-                        {lastNameError ? <p className='textErrorField'>Last name must contains at least 2 characters</p> : null}
-                    </div>
-                    <div className='containerDateOfBirth'>
-                        <label htmlFor='dateOfBirth'>Date of Birth</label>
-                        <DatePicker
+                        {lastNameError ? &lt;p className='textErrorField'>Last name must contains at least 2 characters&lt;/p> : null}
+                    &lt;/div>
+                    &lt;div className='containerDateOfBirth'>
+                        &lt;label htmlFor='dateOfBirth'>Date of Birth&lt;/label>
+                        &lt;DatePicker
                         selected={dateOfBirth}
                         onChange={(date) => setdateOfBirth(date)}
                         placeholderText='Select a date of birth'
@@ -118,11 +147,11 @@ function CreateEmployee() {
                         dropdownMode='select'
                         className='dateOfBirthDatePicker'
                         />
-                        {dateOfBirthError ? <p className='textErrorField'>You must select a date of birth</p> : null}
-                    </div>
-                    <div className='containerStartDate'>
-                        <label htmlFor='startDate'>Start Date</label>
-                        <DatePicker
+                        {dateOfBirthError ? &lt;p className='textErrorField'>You must select a date of birth&lt;/p> : null}
+                    &lt;/div>
+                    &lt;div className='containerStartDate'>
+                        &lt;label htmlFor='startDate'>Start Date&lt;/label>
+                        &lt;DatePicker
                         selected={startDate}
                         onChange={(date) => setStartDate(date)}
                         placeholderText='Select a start date'
@@ -130,35 +159,35 @@ function CreateEmployee() {
                         dropdownMode='select'
                         className='startDateDatePicker'
                         />
-                        {startDateError ? <p className='textErrorField'>You must select a start date</p> : null}
-                    </div>
-                    <fieldset className='fieldsGroup'>
-                        <legend>Address</legend>
-                        <div className='containerStreet'>
-                            <label htmlFor='street'>Street</label>
-                            <input 
+                        {startDateError ? &lt;p className='textErrorField'>You must select a start date&lt;/p> : null}
+                    &lt;/div>
+                    &lt;fieldset className='fieldsGroup'>
+                        &lt;legend>Address&lt;/legend>
+                        &lt;div className='containerStreet'>
+                            &lt;label htmlFor='street'>Street&lt;/label>
+                            &lt;input 
                             type='text' 
                             name='street' 
                             id='street' 
                             onChange={(event) => setStreet(event.target.value)}
                             className='streetInput' 
                             />
-                            {streetError ? <p className='textErrorField'>Street must contains at least 2 characters</p> : null}
-                        </div>
-                        <div className='containerCity'>
-                            <label htmlFor='city'>City</label>
-                            <input 
+                            {streetError ? &lt;p className='textErrorField'>Street must contains at least 2 characters&lt;/p> : null}
+                        &lt;/div>
+                        &lt;div className='containerCity'>
+                            &lt;label htmlFor='city'>City&lt;/label>
+                            &lt;input 
                             type='text' 
                             name='city' 
                             id='city'  
                             onChange={(event) => setCity(event.target.value)}
                             className='cityInput'
                             />
-                            {cityError ? <p className='textErrorField'>City must contains at least 2 characters</p> : null}
-                        </div>
-                        <div className='containerState'>
-                            <label htmlFor='state'>State</label>
-                            <Select
+                            {cityError ? &lt;p className='textErrorField'>City must contains at least 2 characters&lt;/p> : null}
+                        &lt;/div>
+                        &lt;div className='containerState'>
+                            &lt;label htmlFor='state'>State&lt;/label>
+                            &lt;Select
                             name='state'
                             id='state'
                             options={statesListing}
@@ -176,23 +205,23 @@ function CreateEmployee() {
                             }}
                             className='stateSelect'
                             />
-                            {stateError ? <p className='textErrorField'>You must select a state</p> : null}
-                        </div>
-                        <div className='containerZipCode'>
-                            <label htmlFor='zipCode'>Zip Code</label>
-                            <input 
+                            {stateError ? &lt;p className='textErrorField'>You must select a state&lt;/p> : null}
+                        &lt;/div>
+                        &lt;div className='containerZipCode'>
+                            &lt;label htmlFor='zipCode'>Zip Code&lt;/label>
+                            &lt;input 
                             type='number' 
                             name='zipCode' 
                             id='zipCode' 
                             onChange={(event) => setZipCode(event.target.value)}
                             className='zipCodeInput' 
                             />
-                            {zipCodeError ? <p className='textErrorField'>Enter at least one number for Zip Code</p> : null}
-                        </div>    
-                    </fieldset>
-                    <div className='containerDepartment'>
-                        <label htmlFor='department'>Department</label>
-                        <Select
+                            {zipCodeError ? &lt;p className='textErrorField'>Enter at least one number for Zip Code&lt;/p> : null}
+                        &lt;/div>    
+                    &lt;/fieldset>
+                    &lt;div className='containerDepartment'>
+                        &lt;label htmlFor='department'>Department&lt;/label>
+                        &lt;Select
                         name='department'
                         id='department'
                         options={departmentsListing}
@@ -210,21 +239,43 @@ function CreateEmployee() {
                         }}
                         className='departmentSelect'    
                         />
-                        {departmentError ? <p className='textErrorField'>You must select a department</p> : null}
-                    </div>
-                    <div className='containerFormButton'>
-                        <button className='formButton' type='submit'>Save</button>
-                    </div>
-                </form>
-            </div>
+                        {departmentError ? &lt;p className='textErrorField'>You must select a department&lt;/p> : null}
+                    &lt;/div>
+                    &lt;div className='containerFormButton'>
+                        &lt;button className='formButton' type='submit'>Save&lt;/button>
+                    &lt;/div>
+                &lt;/form>
+            &lt;/div>
             {modalOpening ? 
-                <Modal 
+                &lt;Modal 
                 closeModal={() => setModalOpening(false)}
                 textModal='Employee Created!'
                 /> 
             : null}
-        </main>
+        &lt;/main>
     )
 }
   
-export default CreateEmployee
+export default CreateEmployee</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="CreateEmployee.html">CreateEmployee</a></li><li><a href="ModalTest.html">ModalTest</a></li></ul><h3>Global</h3><ul><li><a href="global.html#fieldsChecking">fieldsChecking</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Jun 12 2023 15:59:09 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
