@@ -16,10 +16,10 @@
 function fieldsChecking(state){
     //console.log('state.firstName='+state.firstName)
     //console.log('state.startDate='+state.startDate)
-    console.log('typeof(state.dateOfBirth)='+typeof(state.dateOfBirth))
-    console.log('state.dateOfBirth='+state.dateOfBirth)
-    console.log('state.department='+state.department)
-    console.log('typeof(state.department)='+typeof(state.department))
+    //console.log('typeof(state.dateOfBirth)='+typeof(state.dateOfBirth))
+    //console.log('state.dateOfBirth='+state.dateOfBirth)
+    //console.log('state.department='+state.department)
+    //console.log('typeof(state.department)='+typeof(state.department))
     let errorFirstName = false
     let errorLastName = false
     let errorStartDate = false
@@ -30,56 +30,59 @@ function fieldsChecking(state){
     let errorState = false
     let errorZipCode = false
     let formIsValid = false
+    const regexNames=/^[a-zA-Z-]+$/
+    const regexCity=/^[a-zA-Z-]+$/
+    const regexStreet=/^[a-zA-Z- ]+$/
 
-    if(state.firstName.length < 2){
+    if(state.firstName.length < 1 || regexNames.test(state.firstName) === false){
         errorFirstName = true
     }
     else{
         errorFirstName = false
     }
-    if(state.lastName.length < 2){
+    if(state.lastName.length < 1 || regexNames.test(state.lastName) === false){
         errorLastName = true
     }    
     else{
         errorLastName = false
     }
-    if(state.startDate === undefined){
+    if(state.startDate === ''){
         errorStartDate = true
     }
     else{
         errorStartDate = false
     }
-    if(state.department === null){
+    if(state.department === ''){
         errorDepartment = true
     }
     else{
         errorDepartment = false
     }
-    if(state.dateOfBirth === undefined){
+    if(state.dateOfBirth === ''){
         errorDateOfBirth = true
     }
     else{
         errorDateOfBirth = false
     }            
-    if(state.street.length <2){
+    if(state.street.length <1 || regexStreet.test(state.street) === false){
         errorStreet = true
     }
     else{
         errorStreet = false
     }
-    if(state.city.length <2){
+    if(state.city.length <1 || regexCity.test(state.city) === false){
         errorCity = true
     }
     else{
         errorCity = false
     }    
-    if(state.state === null){
+    if(state.state === ''){
         errorState = true
     }
     else{
         errorState = false
     }        
-    if(state.zipCode.length <2){
+    if(state.zipCode.length <1){
         errorZipCode = true
     }
     else{

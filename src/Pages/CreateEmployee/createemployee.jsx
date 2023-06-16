@@ -9,6 +9,7 @@ import './createemployee.css'
 import { useDispatch } from 'react-redux'
 import { actionCreateEmployee } from '../../Redux/store.js'
 import fieldsChecking from '../../Services/fieldschecking.js'
+import changeDateFormat from '../../Services/changedateformat.js'
 import {Modal} from 'alex-modal-in-react'
 
 /** 
@@ -43,16 +44,35 @@ function CreateEmployee() {
 
     function formSubmission(event){
         event.preventDefault()
+        //console.log('dateOfBirth='+dateOfBirth)
+        //console.log('typeof(dateOfBirth)='+typeof(dateOfBirth))
+
+        let departmentChosen
+        let stateChosen 
+
+        if(departmentSelected === null){
+            departmentChosen=''
+        }
+        else{
+            departmentChosen = departmentSelected.value
+        }
+        if(stateSelected === null){
+            stateChosen=''
+        }
+        else{
+            stateChosen = stateSelected.value
+        }
+        
         const stateToRecord = {
             firstName: firstName,
             lastName: lastName,
-            startDate: startDate,
-            department: departmentSelected,
-            dateOfBirth: dateOfBirth,
+            startDate: changeDateFormat(startDate),
+            dateOfBirth: changeDateFormat(dateOfBirth),
+            department: departmentChosen, 
             street: street,
             city: city,
-            state: stateSelected,
-            zipCode: zipCode,
+            state: stateChosen,
+            zipCode: zipCode
         }
 
         const resultChecking = fieldsChecking(stateToRecord)
@@ -67,11 +87,11 @@ function CreateEmployee() {
         setZipCodeError(resultChecking.errorZipCode)
 
         if(resultChecking.formIsValid){    
-            dispatch(actionCreateEmployee({stateToRecord}))
+            dispatch(actionCreateEmployee(stateToRecord))
             setModalOpening(true)
-            // réinitialisation des champs du formulaire
+            // Reset form's fields
             document.getElementById('formPageCreate').reset()
-            // Réinitialisation des champs du formulaire issus des composants importé de npm
+            // Reset form's fields coming from components imported with npm
             setdateOfBirth(null)
             setStartDate(null)
         }
@@ -95,7 +115,10 @@ function CreateEmployee() {
                         onChange={(event) => setFirstName(event.target.value)}
                         className='firstNameInput'
                         />
-                        { firstNameError ? <p className='textErrorField'>First name must contains at least 2 characters</p>: null}
+                        { firstNameError ? 
+                        <p className='textErrorField'>
+                            First name must contains at least 1 character<br /> Allowed characters: a to z / A to Z / -
+                        </p>: null}
                     </div>
                     <div className='containerLastName'>
                         <label htmlFor='lastName'>Last Name</label>
@@ -106,7 +129,10 @@ function CreateEmployee() {
                         onChange={(event) => setLastName(event.target.value)}
                         className='lastNameInput' 
                         />
-                        {lastNameError ? <p className='textErrorField'>Last name must contains at least 2 characters</p> : null}
+                        {lastNameError ? 
+                        <p className='textErrorField'>
+                            Last name must contains at least 1 character<br /> Allowed characters: a to z / A to Z / -
+                        </p> : null}
                     </div>
                     <div className='containerDateOfBirth'>
                         <label htmlFor='dateOfBirth'>Date of Birth</label>
@@ -143,7 +169,10 @@ function CreateEmployee() {
                             onChange={(event) => setStreet(event.target.value)}
                             className='streetInput' 
                             />
-                            {streetError ? <p className='textErrorField'>Street must contains at least 2 characters</p> : null}
+                            {streetError ? 
+                            <p className='textErrorField'>
+                                Street must contains at least 1 character<br /> Allowed characters: a to z / A to Z / - / space
+                            </p> : null}
                         </div>
                         <div className='containerCity'>
                             <label htmlFor='city'>City</label>
@@ -154,7 +183,10 @@ function CreateEmployee() {
                             onChange={(event) => setCity(event.target.value)}
                             className='cityInput'
                             />
-                            {cityError ? <p className='textErrorField'>City must contains at least 2 characters</p> : null}
+                            {cityError ? 
+                            <p className='textErrorField'>
+                                City must contains at least 1 character<br /> Allowed characters: a to z / A to Z / -
+                            </p> : null}
                         </div>
                         <div className='containerState'>
                             <label htmlFor='state'>State</label>
@@ -187,7 +219,7 @@ function CreateEmployee() {
                             onChange={(event) => setZipCode(event.target.value)}
                             className='zipCodeInput' 
                             />
-                            {zipCodeError ? <p className='textErrorField'>Enter at least one number for Zip Code</p> : null}
+                            {zipCodeError ? <p className='textErrorField'>Enter at least 1 number for Zip Code</p> : null}
                         </div>    
                     </fieldset>
                     <div className='containerDepartment'>
