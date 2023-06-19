@@ -4,7 +4,7 @@
 
 # HRnet's app
 
-<img onerror="this.onerror=null; this.src='Image_README_HRnet.png';" src='src/Assets/Image_README_HRnet.png' alt='Image README HRnet' title='image_README_HRnet'/>
+<img onerror="this.onerror=null; this.src='image_README_HRnet.png';" src='src/Assets/image_README_HRnet.png' alt='Image README HRnet' title='image_README_HRnet'/>
 
 HRnet is an app based on React where user can create employees and can see the list of the current employees.
 The file explains how to install HRnet's app and how to execute it.
@@ -23,7 +23,8 @@ the Redux initial State into the store.js file.
 
 - Enter the following command in your computer terminal:
 
-    git clone <a href='https://github.com/MilovanovicAlexandre/faites-passer-une-librairie-jquery-vers-react'>https://github.com/MilovanovicAlexandre/faites-passer-une-librairie-jquery-vers-react</a>
+    git clone https://github.com/MilovanovicAlexandre/faites-passer-une-librairie-jquery-vers-react
+
 
 ### Run HRnet's app
 
@@ -33,9 +34,11 @@ the Redux initial State into the store.js file.
 
     npm install
 
+
 - Enter the following command in your computer terminal to run the HRnet's app:
 
     npm start
+
 
 The HRnet's app is now available on: <a href='localhost:3000/CreateEmployee'>localhost:3000/CreateEmployee</a>
 
