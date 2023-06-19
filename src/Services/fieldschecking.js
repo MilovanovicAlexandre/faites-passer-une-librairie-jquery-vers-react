@@ -14,12 +14,7 @@
  */
 
 function fieldsChecking(state){
-    //console.log('state.firstName='+state.firstName)
-    //console.log('state.startDate='+state.startDate)
-    //console.log('typeof(state.dateOfBirth)='+typeof(state.dateOfBirth))
-    //console.log('state.dateOfBirth='+state.dateOfBirth)
-    //console.log('state.department='+state.department)
-    //console.log('typeof(state.department)='+typeof(state.department))
+    
     let errorFirstName = false
     let errorLastName = false
     let errorStartDate = false

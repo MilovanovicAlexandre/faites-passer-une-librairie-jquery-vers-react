@@ -1,12 +1,10 @@
 .containerTextErrorAndLink{
-    /*background-color: blue;*/
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .containerTextError404{
-    /*background-color: green;*/
     display: flex;
     flex-direction: column;
     align-items: center;            
@@ -21,7 +19,6 @@
 }
 
 .containerLinkError404{
-    /*background-color: yellow;*/
     margin-top: 25px;
 }
 
@@ -35,6 +32,7 @@
     border: 1px solid black;
     padding: 15px;
     background-color: lightgrey;
+    border-radius: 5px;
 }
 
 .textLinkError404:hover{

@@ -11,7 +11,8 @@ The file explains how to install HRnet's app and how to execute it.
 Before installing this app you need to fullfill all the prerequisites incidated below.
 Detailed explanations are given about HRnet'app setup.
 In conclusion, an explanation will allow you to add / modify / remove the initial list of employees by using
-the Redux initial State into the store.js file. 
+the Redux initial State into the initialState.js file. An other explanation will allow you to understand how
+to fill form's fields to create an employee.
 
 ## Prerequisites
 
@@ -43,7 +44,30 @@ The HRnet's app is now available on: <a href='localhost:3000/CreateEmployee'>loc
 
 You can add / modify / remove initial list of employees by modifying Redux initial State:
 
-In Redux/store.js file you have the initial State:
+In Redux/initialState.js file you have the initial State:
+
+<pre>
+const initialState = {
+    employeesList: [
+        {
+            firstName: 'Alex',
+            lastName: 'Alex',
+            startDate: '02/02/2020',
+            dateOfBirth: '01/01/1990',
+            department: 'Marketing',
+            street: 'Main Street',
+            city: 'NY',
+            state: 'AL',
+            zipCode: '01800'
+        }
+    ]
+}
+</pre>
+
+For example, if you want to add an employee in the initial list you must to add and object inside the array called 'employeeList' and all properties need to be filled out. The properties of an object are 'firstName','lastName',
+'startDate', 'dateOfBirth', 'department', 'street', 'city', 'state' and 'zipcode'.
+
+If you want to add Tony as an employee you will have:
 
 <pre>
 const initialState = {
@@ -74,7 +98,29 @@ const initialState = {
 }
 </pre>
 
-For example of you want to add an employee in the initial list you must to add and object inside the array called 'employeeList' and all properties need to be filled out. The properties of an object are 'firstName','lastName',
- 'startDate', 'dateOfBirth', 'department', 'street', 'city', 'state' and 'zipcode'.
 Other exemple, if you want to remove an employee in the initial list, just delete the object that makes reference to the
 employee you want to delete.
+
+If you want to delete employees Alex and tony you will have:
+
+<pre>
+const initialState = {
+    employeesList: [
+        
+    ]
+}
+</pre>
+
+## Add an employee in the table of current employees
+
+For adding an employee, you need to fill each field of the form.
+Fields are : First Name, Last Name, Date of Birth, Start Date, Street, City, State, Zip Code and Departement.
+
+Be careful when you fill the form. If the data enter inside a field is in a wrong format it will trigger an error message.
+If only one field of the form has a bad format you won't be allowed to create an employee.
+
+For exemple for the field called 'First Name', if user enter data in wrong format the following message will appear
+below 'First Name' field:
+
+<span style='color:red;'>First Name must contains at least 1 character</span><br />
+<span style='color:red;'>Allowed characters: a to z / A to Z / -</span>

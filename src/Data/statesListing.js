@@ -1,3 +1,5 @@
+// States'list of United States with value and label
+
 export const statesListing = [
     {
       value: 'AL',

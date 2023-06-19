@@ -1,3 +1,5 @@
+// List of department with value and label
+
 export const departmentsListing = [
     {
         value: 'Sales',

@@ -18,11 +18,6 @@ function CurrentEmployees() {
 
     const employeesRecorded = useSelector((state) => state.employeesList)
 
-    //console.log('employeesRecorded='+employeesRecorded)
-    //console.log('typeof(employeesRecorded)='+typeof(employeesRecorded))
-    //console.log('employeesRecorded[0]='+employeesRecorded[0])
-    //console.log('typeof(employeesRecorded[0])='+typeof(employeesRecorded[0]))
-
     const tableHeader = [
         { text: "First Name", value: "firstName" },
         { text: "Last Name", value: "lastName" },
@@ -34,8 +29,6 @@ function CurrentEmployees() {
         { text: "State", value: "state" },
         { text: "Zip Code", value: "zipCode" },
     ]
-
-    //console.log('typeof(exempleLabels)'+typeof(exempleLabels))
 
     return (
         <main>

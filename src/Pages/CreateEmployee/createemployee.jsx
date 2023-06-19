@@ -44,8 +44,6 @@ function CreateEmployee() {
 
     function formSubmission(event){
         event.preventDefault()
-        //console.log('dateOfBirth='+dateOfBirth)
-        //console.log('typeof(dateOfBirth)='+typeof(dateOfBirth))
 
         let departmentChosen
         let stateChosen 
