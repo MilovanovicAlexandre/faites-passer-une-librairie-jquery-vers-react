@@ -23,8 +23,7 @@ the Redux initial State into the store.js file.
 
 - Enter the following command in your computer terminal:
 
-    <p style='background-color: black; color: white;'>git clone https://github.com/MilovanovicAlexandre/faites-passer-une-librairie-jquery-vers-react<p>
-
+    git clone https://github.com/MilovanovicAlexandre/faites-passer-une-librairie-jquery-vers-react
 
 ### Run HRnet's app
 
@@ -32,13 +31,11 @@ the Redux initial State into the store.js file.
 
 - Enter the following command in your computer terminal to install the dependencies:
 
-    <p style='background-color: black; color: white;'>npm install</p>
-
+    npm install
 
 - Enter the following command in your computer terminal to run the HRnet's app:
 
-    <p style='background-color: black; color: white;'>npm start</p>
-
+    npm start
 
 The HRnet's app is now available on: <a href='localhost:3000/CreateEmployee'>localhost:3000/CreateEmployee</a>
 
