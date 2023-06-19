@@ -2,6 +2,13 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import './error.css'
 
+/** 
+ * Component that displays the error page 404. if the web adress / Assets is not found so this page will be displayed.
+ * On this page user is advised about 404 error and he can return to the home page by cliking on the link.
+ * @namespace
+ * @returns {JSX.Element} A JSX element containing the error page component 
+ */
+
 function Error() {
     return (
         <main>

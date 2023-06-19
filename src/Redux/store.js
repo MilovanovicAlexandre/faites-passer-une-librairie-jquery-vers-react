@@ -2,11 +2,15 @@ import { createStore } from "redux";
 
 // InitialState of Redux
 
+/*const initialState = {
+    employeesList: []
+}*/
+
 const initialState = {
     employeesList: [
         {
-            firstName: 'Alex',
-            lastName: 'A',
+            firstName: 'Test1',
+            lastName: 'Test1',
             startDate: '02/02/2000',
             dateOfBirth: '01/01/1990',
             department: 'Marketing',
@@ -16,8 +20,8 @@ const initialState = {
             zipCode: '01800'
         },
         {
-            firstName: 'Martin',
-            lastName: 'M',
+            firstName: 'Test2',
+            lastName: 'Test2',
             startDate: '02/02/2001',
             dateOfBirth: '01/01/1993',
             department: 'Marketing',
@@ -27,8 +31,8 @@ const initialState = {
             zipCode: '03900'
         },
         {
-            firstName: 'Martin2',
-            lastName: 'M2',
+            firstName: 'Test3',
+            lastName: 'Test3',
             startDate: '02/02/2000',
             dateOfBirth: '01/01/1990',
             department: 'Marketing',

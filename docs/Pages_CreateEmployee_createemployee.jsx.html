@@ -27,17 +27,17 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React, {useState} from 'react'
-import { Link } from 'react-router-dom';
-import DatePicker from "react-datepicker";
+import { Link } from 'react-router-dom'
+import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import Select from 'react-select';
-import { statesListing } from '../../Data/statesListing.js';
-import { departmentsListing } from '../../Data/departmentsListing.js';
+import { statesListing } from '../../Data/statesListing.js'
+import { departmentsListing } from '../../Data/departmentsListing.js'
 import './createemployee.css'
-import { useDispatch } from 'react-redux';
-import { actionCreateEmployee } from '../../Redux/store.js';
-import fieldsChecking from '../../Services/fieldschecking.js';
-import ModalTest from '../../Components/ModalTest/modaltest.jsx';
+import { useDispatch } from 'react-redux'
+import { actionCreateEmployee } from '../../Redux/store.js'
+import fieldsChecking from '../../Services/fieldschecking.js'
+import changeDateFormat from '../../Services/changedateformat.js'
 import {Modal} from 'alex-modal-in-react'
 
 /** 
@@ -72,16 +72,35 @@ function CreateEmployee() {
 
     function formSubmission(event){
         event.preventDefault()
+        //console.log('dateOfBirth='+dateOfBirth)
+        //console.log('typeof(dateOfBirth)='+typeof(dateOfBirth))
+
+        let departmentChosen
+        let stateChosen 
+
+        if(departmentSelected === null){
+            departmentChosen=''
+        }
+        else{
+            departmentChosen = departmentSelected.value
+        }
+        if(stateSelected === null){
+            stateChosen=''
+        }
+        else{
+            stateChosen = stateSelected.value
+        }
+        
         const stateToRecord = {
             firstName: firstName,
             lastName: lastName,
-            startDate: startDate,
-            department: departmentSelected,
-            dateOfBirth: dateOfBirth,
+            startDate: changeDateFormat(startDate),
+            dateOfBirth: changeDateFormat(dateOfBirth),
+            department: departmentChosen, 
             street: street,
             city: city,
-            state: stateSelected,
-            zipCode: zipCode,
+            state: stateChosen,
+            zipCode: zipCode
         }
 
         const resultChecking = fieldsChecking(stateToRecord)
@@ -96,11 +115,11 @@ function CreateEmployee() {
         setZipCodeError(resultChecking.errorZipCode)
 
         if(resultChecking.formIsValid){    
-            dispatch(actionCreateEmployee({stateToRecord}))
+            dispatch(actionCreateEmployee(stateToRecord))
             setModalOpening(true)
-            // réinitialisation des champs du formulaire
+            // Reset form's fields
             document.getElementById('formPageCreate').reset()
-            // Réinitialisation des champs du formulaire issus des composants importé de npm
+            // Reset form's fields coming from components imported with npm
             setdateOfBirth(null)
             setStartDate(null)
         }
@@ -124,7 +143,10 @@ function CreateEmployee() {
                         onChange={(event) => setFirstName(event.target.value)}
                         className='firstNameInput'
                         />
-                        { firstNameError ? &lt;p className='textErrorField'>First name must contains at least 2 characters&lt;/p>: null}
+                        { firstNameError ? 
+                        &lt;p className='textErrorField'>
+                            First name must contains at least 1 character&lt;br /> Allowed characters: a to z / A to Z / -
+                        &lt;/p>: null}
                     &lt;/div>
                     &lt;div className='containerLastName'>
                         &lt;label htmlFor='lastName'>Last Name&lt;/label>
@@ -135,7 +157,10 @@ function CreateEmployee() {
                         onChange={(event) => setLastName(event.target.value)}
                         className='lastNameInput' 
                         />
-                        {lastNameError ? &lt;p className='textErrorField'>Last name must contains at least 2 characters&lt;/p> : null}
+                        {lastNameError ? 
+                        &lt;p className='textErrorField'>
+                            Last name must contains at least 1 character&lt;br /> Allowed characters: a to z / A to Z / -
+                        &lt;/p> : null}
                     &lt;/div>
                     &lt;div className='containerDateOfBirth'>
                         &lt;label htmlFor='dateOfBirth'>Date of Birth&lt;/label>
@@ -172,7 +197,10 @@ function CreateEmployee() {
                             onChange={(event) => setStreet(event.target.value)}
                             className='streetInput' 
                             />
-                            {streetError ? &lt;p className='textErrorField'>Street must contains at least 2 characters&lt;/p> : null}
+                            {streetError ? 
+                            &lt;p className='textErrorField'>
+                                Street must contains at least 1 character&lt;br /> Allowed characters: a to z / A to Z / - / space / 0 to 9
+                            &lt;/p> : null}
                         &lt;/div>
                         &lt;div className='containerCity'>
                             &lt;label htmlFor='city'>City&lt;/label>
@@ -183,7 +211,10 @@ function CreateEmployee() {
                             onChange={(event) => setCity(event.target.value)}
                             className='cityInput'
                             />
-                            {cityError ? &lt;p className='textErrorField'>City must contains at least 2 characters&lt;/p> : null}
+                            {cityError ? 
+                            &lt;p className='textErrorField'>
+                                City must contains at least 1 character&lt;br /> Allowed characters: a to z / A to Z / -
+                            &lt;/p> : null}
                         &lt;/div>
                         &lt;div className='containerState'>
                             &lt;label htmlFor='state'>State&lt;/label>
@@ -216,7 +247,7 @@ function CreateEmployee() {
                             onChange={(event) => setZipCode(event.target.value)}
                             className='zipCodeInput' 
                             />
-                            {zipCodeError ? &lt;p className='textErrorField'>Enter at least one number for Zip Code&lt;/p> : null}
+                            {zipCodeError ? &lt;p className='textErrorField'>Enter at least 1 number for Zip Code&lt;/p> : null}
                         &lt;/div>    
                     &lt;/fieldset>
                     &lt;div className='containerDepartment'>
@@ -266,13 +297,13 @@ export default CreateEmployee</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="CreateEmployee.html">CreateEmployee</a></li><li><a href="ModalTest.html">ModalTest</a></li></ul><h3>Global</h3><ul><li><a href="global.html#fieldsChecking">fieldsChecking</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="CreateEmployee.html">CreateEmployee</a></li><li><a href="CurrentEmployees.html">CurrentEmployees</a></li><li><a href="Error.html">Error</a></li></ul><h3>Global</h3><ul><li><a href="global.html#changeDateFormat">changeDateFormat</a></li><li><a href="global.html#fieldsChecking">fieldsChecking</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Jun 12 2023 15:59:09 GMT+0200 (heure d’été d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Jun 19 2023 17:10:32 GMT+0200 (heure d’été d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>

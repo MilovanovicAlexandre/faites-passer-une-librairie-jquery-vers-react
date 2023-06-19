@@ -32,7 +32,7 @@ function fieldsChecking(state){
     let formIsValid = false
     const regexNames=/^[a-zA-Z-]+$/
     const regexCity=/^[a-zA-Z-]+$/
-    const regexStreet=/^[a-zA-Z- ]+$/
+    const regexStreet=/^[a-zA-Z- 0-9]+$/
 
     if(state.firstName.length < 1 || regexNames.test(state.firstName) === false){
         errorFirstName = true

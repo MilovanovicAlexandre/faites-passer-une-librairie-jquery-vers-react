@@ -171,7 +171,7 @@ function CreateEmployee() {
                             />
                             {streetError ? 
                             <p className='textErrorField'>
-                                Street must contains at least 1 character<br /> Allowed characters: a to z / A to Z / - / space
+                                Street must contains at least 1 character<br /> Allowed characters: a to z / A to Z / - / space / 0 to 9
                             </p> : null}
                         </div>
                         <div className='containerCity'>
