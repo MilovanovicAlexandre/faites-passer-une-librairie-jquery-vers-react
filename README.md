@@ -4,11 +4,35 @@
 
 # HRnet's app
 
-<img onerror="this.onerror=null; this.src='image_README_HRnet.png';" src='src/Assets/image_README_HRnet.png' alt='Image README HRnet' title='image_README_HRnet'/>
+<img onerror="this.onerror=null; this.src='image_README_HRnet_1.png';" src='src/Assets/image_README_HRnet_1.png' alt='Image README HRnet 1' title='image_README_HRnet_1'/>
+<br />
+<pre>
+Lighthouse    |  Performance  |  Accessibility  |  Best Practices  |  SEO  |
+report        |               |                 |                  |       |
+______________|_______________|_________________|__________________|_______|
+React App     |      99       |        92       |       100        |  100  |
+______________|_______________|_________________|__________________|_______|
+jQuery App    |      99       |        95       |        92        |   78  |
+______________|_______________|_________________|__________________|_______|
+</pre>
+<br />
+<img onerror="this.onerror=null; this.src='image_README_HRnet_2.png';" src='src/Assets/image_README_HRnet_2.png' alt='Image README HRnet 2' title='image_README_HRnet_2'/>
+<br />
+<pre>
+Lighthouse    |  Performance  |  Accessibility  |  Best Practices  |  SEO  |
+report        |               |                 |                  |       |
+______________|_______________|_________________|__________________|_______|
+React App     |      85       |       100       |       100        |  100  |
+______________|_______________|_________________|__________________|_______|
+jQuery App    |     100       |        98       |        92        |   67  |
+______________|_______________|_________________|__________________|_______|
+</pre>
+<br />
 
 HRnet is an app based on React where user can create employees and can see the list of the current employees.
 The file explains how to install HRnet's app and how to execute it.
 Before installing this app you need to fullfill all the prerequisites incidated below.
+A list of dependencies is given to inform you which react components have been used in HRnet's app.
 Detailed explanations are given about HRnet'app setup.
 In conclusion, an explanation will allow you to add / modify / remove the initial list of employees by using
 the Redux initial State into the initialState.js file. An other explanation will allow you to understand how
@@ -17,6 +41,16 @@ to fill form's fields to create an employee.
 ## Prerequisites
 
 - Install npm => <a href='https://nodejs.org/en'>https://nodejs.org/en</a>
+
+## Dependencies
+
+- <a href='https://fr.legacy.reactjs.org/'>react</a>
+- <a href='https://reactrouter.com/en/main'>react-router</a>
+- <a href='https://redux.js.org/'>redux</a>
+- <a href='https://www.npmjs.com/package/alex-modal-in-react'>alex-modal-in-react</a>
+- <a href='https://www.npmjs.com/package/react-datepicker'>react-datepicker</a>
+- <a href='https://www.npmjs.com/package/data-table-react-plugin'>data-table-react-plugin</a>
+- <a href='https://www.npmjs.com/package/react-select'>react-select</a>
 
 ## Setup
 
@@ -101,7 +135,7 @@ const initialState = {
 Other exemple, if you want to remove an employee in the initial list, just delete the object that makes reference to the
 employee you want to delete.
 
-If you want to delete employees Alex and tony you will have:
+If you want to delete employees Alex and Tony you will have:
 
 <pre>
 const initialState = {
@@ -122,5 +156,12 @@ If only one field of the form has a bad format you won't be allowed to create an
 For exemple for the field called 'First Name', if user enter data in wrong format the following message will appear
 below 'First Name' field:
 
-<span style='color:red;'>First Name must contains at least 1 character</span><br />
-<span style='color:red;'>Allowed characters: a to z / A to Z / -</span>
+
+<pre>
+                                        First Name must contains at least 1 character
+                                            Allowed characters: a to z / A to Z / -
+</pre>    
+
+if all fields have right format so an employee will be created and a modal will appear to inform you.
+Next if you want to view the list of employee you can click on the link 'View Current Employees' and you will
+see all the employees inside a table.

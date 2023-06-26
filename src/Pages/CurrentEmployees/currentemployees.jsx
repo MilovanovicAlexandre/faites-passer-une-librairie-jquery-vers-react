@@ -37,8 +37,8 @@ function CurrentEmployees() {
                     <h1>Current employees</h1>
                 </div>
                 <div className='containerTableEmployeesAndFilterAndSearch'>
-                {employeesRecorded.length > 0? 
-                    <DataTable labels={tableHeader} data={employeesRecorded} />
+                {employeesRecorded.length > 0?
+                    <DataTable labels={tableHeader} data={employeesRecorded} />                  
                 :
                 <p>Create an employee for displaying the table of current employees</p>
                 }    
